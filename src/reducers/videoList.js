@@ -3,22 +3,18 @@ import exampleVideoData from '../data/exampleVideoData.js';
 
 var sampleData = exampleVideoData;
 
-var videoListReducer = (state = sampleData, action) => {
+var videoListReducer = (state = [], action) => {
 
-  var newState = Object.assign({}, state);
   switch (action.type) {
 
-  case 'CHANGE_VIDEO_LIST': 
-    newState.videos = action.videos;
-    state = newState;
+  case 'CHANGE_VIDEO_LIST':
+    return action.videos || state;
     break;
 
   default:  
-    state.videos = [];
+    return state;
   }
   
-  return state.videos;
-
 };
 
 export default videoListReducer;

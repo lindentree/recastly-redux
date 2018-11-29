@@ -6,24 +6,12 @@ var currentVideoReducer = (state = null, action) => {
   switch (action.type) {
 
   case 'CHANGE_VIDEO':
-    const newState = Object.assign({}, state);
-    newState.currentVideo = action.video;
-    state = newState;
-    break;
+    return action.video || state;
 
   default:
-    return state = null;
-
-  }
-  
-  if (state !== null && state.currentVideo !== undefined) {
-    return state.currentVideo;
-  } else {
-    
     return state;
 
   }
-
   
 };
 
