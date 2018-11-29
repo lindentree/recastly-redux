@@ -3,7 +3,10 @@ import VideoList from './../components/VideoList.js';
 import changeVideo from './../actions/currentVideo.js';
 
 var mapStateToProps = (state) => {
-  return { videos: state.videos || [] };
+  console.log(state)
+  return { 
+    videos: state.videoList
+  };
 };
 
 var mapDispatchToProps = (dispatch) => {
