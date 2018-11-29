@@ -15,7 +15,7 @@ var handleVideoSearch = (q) => {
     }, (data) => { data.items; });
   });
 
-  // return { type: 'SEARCH', payload: ytVids };
+  //return searchYouTube(YOUTUBE_API_KEY, q, (data) => { data.items; });
 
 };
 

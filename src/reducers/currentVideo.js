@@ -12,15 +12,18 @@ var currentVideoReducer = (state = null, action) => {
     break;
 
   default:
-    state = null;
+    return state = null;
 
   }
   
-  if (state !== null) {
+  if (state !== null && state.currentVideo !== undefined) {
     return state.currentVideo;
+  } else {
+    
+    return state;
+
   }
 
-  return state;
   
 };
 
