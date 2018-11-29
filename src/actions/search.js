@@ -5,17 +5,11 @@ import YOUTUBE_API_KEY from '../config/youtube.js';
 
 
 var handleVideoSearch = (q) => {
- 
-  return (() => {
-    $.get('https://www.googleapis.com/youtube/v3/search', {
-      q: q,
-      key: YOUTUBE_API_KEY,
-      type: 'video',
-      part: 'snippet'
-    }, (data) => { data.items; });
-  });
 
-  //return searchYouTube(YOUTUBE_API_KEY, q, (data) => { data.items; });
+  return (dispatch => searchYouTube({key: YOUTUBE_API_KEY, query: q}, (data) => {
+    dispatch(changeVideoList(data));
+    dispatch(changeVideo(data[0]));
+  }));
 
 };
 
